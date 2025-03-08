@@ -25,14 +25,19 @@ The goal of this practice was to create a notes app that provides users with a s
 ## Images
 - Local Storage:
 ![LS](./images/LS.png)
+
 - Editing note
 ![edit](./images/edit.png)
+
 - Desktop:
 ![Desktop](./images/desktop.png)
+
 - Tablet:
 ![ipad](./images/ipad.png)
+
 - Phone:
 ![phone](./images/phone.png)
+
 ## Links
 **Github:**
 
