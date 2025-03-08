@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+    --text: #e2e7f1;
+    --background: #0a0f18;
+    --primary: #9bb5df;
+    --secondary: #21457e;
+    --accent: #3c78d8;
+    --box-color: #9ab5df33;
+    --shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    --linearPrimarySecondary: linear-gradient(#9bb5df, #21457e);
+
+    --body-font: "Inter", sans-serif;
+    --border-radius: 1.5rem;
+    --transition: all 0.3s ease;
+}
+
+/* general */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--body-font);
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 0 16px;
+}
+
+/* header section */
+.header {
+    text-align: center;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    max-width: 800px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: inline-block;
+
+    background: var(--linearPrimarySecondary);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.slogan {
+    color: var(--text);
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+/* note container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+}
+
+.note-box {
+    background-color: #21447d1a;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.boxGroup {
+    margin-bottom: 1.3rem;
+}
+
+.boxGroup label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+
+    background-color: #21447d33;
+    color: var(--text);
+    border: 1px solid #21447d33;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: var(--shadow);
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* buttons */
+button {
+    padding: 0.75rem 1rem;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+#saveBtn {
+    background-color: var(--accent);
+    margin-right: 0.75rem;
+    z-index: 2;
+    transition: transform ease 0.2s, box-shadow ease 0.2s;
+    white-space: nowrap;
+}
+
+#saveBtn:hover {
+    transform: translate(0, -3px);
+    /*box-shadow: 0 20px 80px -10px var(--primary);*/
+}
+
+#cancelBtn {
+    background-color: var(--primary);
+    color: var(--background);
+    transition: transform ease 0.2s;
+    z-index: 1;
+}
+
+#cancelBtn:hover {
+    transform: translate(0, -3px);
+    transition: transform ease 0.2s;
+}
+
+/* stored notes */
+.container-notes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.note {
+    background-color: #21447d1a;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    padding: 1.5rem;
+    overflow: hidden;
+}
+
+.note:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 46px rgba(0, 0, 0, 0.3);
+}
+
+.note h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding-right: 2rem;
+    word-break: break-word;
+}
+
+.note p {
+    margin-top: 1rem;
+    opacity: 0.6;
+    font-size: 1rem;
+    max-height: 80px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    transition: var(--transition);
+}
+
+.note-date {
+    font-style: italic;
+    margin: 10px 0;
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.note-date i {
+    color: var(--accent);
+}
+
+
+.actn {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.edit, .delete {
+    background: transparent;
+    color: var(--accent);
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.edit:hover, .delete:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    /*transform: scale(1.1);*/
+}
+
+/* when there is not stored notes */
+.emptyNotes {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text);
+    opacity: 0.1;
+}
+
+.emptyNotes i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.emptyNotes p {
+    font-size: 1.2rem;
+}
+
+/* responsive */
+@media (max-width: 768px){
+    .header h1 {
+        font-size: 2rem;
+    }
+    .container-notes {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px){
+    .header {
+        padding: 1.5rem 1rem;
+    }
+    .header h1 {
+        font-size: 1.7rem;
+    }
+    .note-box {
+        padding: 1.2rem;
+    }
+    #saveBtn {
+        width: 100%;
+        margin-bottom: 0.7rem;
+        margin-right: 0;
+    }
+    #cancelBtn {
+        width: 100%;
+    }
+}
