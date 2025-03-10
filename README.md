@@ -33,6 +33,7 @@ The goal of this practice was to create a notes app that provides users with a s
 ![Desktop](./images/desktop.png)
 
 - Tablet:
+
 ![ipad](./images/ipad.png)
 
 - Phone:

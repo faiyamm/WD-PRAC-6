@@ -35,7 +35,6 @@ function render() {
 
     notes.forEach((note) => {
         const note_elem = document.createElement("div")
-        const longText = note.text.length > 100
         note_elem.classList.add("note")
         note_elem.innerHTML = `
             <h2>${note.title}</h2>
